@@ -1,21 +1,31 @@
+body {
+  max-width: 186vh;
+  font-family: "Noto Sans JP";
+}
 
+header {
+  height: 10vh;
+}
+
+h1 {
+  padding: 10px;
+}
 .col-3{
   border-right: 1.5px solid #bababa;
   left: 20px;
   top: 10px;
-  height: 95vh;
+  height: 85vh;
   padding: 10px 20px 10px 10px;
   padding-top:20px;
 }
 
 .col-9{
-  /* background-color: rgb(245, 241, 240); */
-  height: 95vh;
+  height: 85vh;
   padding-left: 50px;
 }
 
 .col-9 >.box {
-  height: 100vh;
+  height: 85vh;
   overflow: auto;
 }
 
@@ -25,3 +35,6 @@
   max-width: 80%;
 }
 
+.detail {
+  margin-top: 10px;
+}

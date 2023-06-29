@@ -51,13 +51,17 @@ if ($_SERVER['REQUEST_METHOD'] != 'POST') {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <title>画像を入れるアプリ</title>
+  <title>画像を保存するアプリ</title>
 </head>
 
 <body>
+  <header>
+    <h1>画像を保存</h1>
+  </header>
 <div class="row">
     <div class="col-3"><!-- 画面左 -->
       <form method="post" enctype="multipart/form-data" action="insert.php">
@@ -85,10 +89,10 @@ if ($_SERVER['REQUEST_METHOD'] != 'POST') {
               <img src="select.php?id=<?= $images[$i]['id']; ?>" width="300" height="auto" class="mr-3">
             </a>
             <div class="media-body">
-              <p style="color: #454545;"><?= $images[$i]['date']; ?></p>
+              <p style="color: #878787;"><?= $images[$i]['date']; ?></p>
               <h5 style="font-weight:bold;"><?= $images[$i]['title']; ?></h5>
-              <a href="#"><i class="fa-solid fa-heart fa-xl fa-beat-fade" style="color: #f524a8;"></i></a>
-              <p><?= $images[$i]['detail']; ?></p>
+              <button type="button" class="btn btn-link"><i class="fa-solid fa-heart fa-lg fa-beat-fade" style="color: #f524a8;"></i></button>
+              <p class="detail"><?= $images[$i]['detail']; ?></p>
             </div>
           </li>
           <?php endfor; ?>
