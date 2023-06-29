@@ -80,7 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] != 'POST') {
       <div class="box" data-spy="scroll" data-offset="0" >
         <ul class="list-unstyled">
           <?php for ($i = 0; $i < count($images); $i ++): ?>
-          <li class="media mt-5">
+          <li class="media mt-5 box-li">
             <a href="#lightbox" data-toggle="modal" data-slide-to="<?= $i; ?>">
               <img src="select.php?id=<?= $images[$i]['id']; ?>" width="300" height="auto" class="mr-3">
             </a>
