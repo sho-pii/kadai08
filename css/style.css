@@ -19,7 +19,7 @@
   overflow: auto;
 }
 
-li {
+.box-li {
   padding-bottom: 50px;
   border-bottom: 2px dotted #bababa;
   max-width: 80%;
