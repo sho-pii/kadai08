@@ -1,6 +1,6 @@
 <?php
-ini_set("display_errors", 'On');
-error_reporting(E_ALL);
+// ini_set("display_errors", 'On');
+// error_reporting(E_ALL);
 
 require_once('functions.php');
 
@@ -8,8 +8,7 @@ $pdo = connectDB();
 
 if ($_SERVER['REQUEST_METHOD'] != 'POST') {
   // 画像を取得
-    $sql = 'SELECT * FROM gs_bm_table ORDER BY date DESC';
-    $stmt = $pdo->prepare($sql);
+    $stmt = $pdo->prepare("SELECT * FROM gs_bm_table ORDER BY date DESC");
     $stmt->execute();
     $images = $stmt->fetchAll();
 
@@ -44,6 +43,8 @@ if ($_SERVER['REQUEST_METHOD'] != 'POST') {
   header('Location: index.php');
   exit();
 }
+
+
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -64,7 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] != 'POST') {
   </header>
 <div class="row">
     <div class="col-3"><!-- 画面左 -->
-      <form method="post" enctype="multipart/form-data" action="insert.php">
+      <form method="post" enctype="multipart/form-data">
         <div class="form-group">
           <label>画像を選択</label>
           <input type="file" name="image" required>
@@ -91,7 +92,9 @@ if ($_SERVER['REQUEST_METHOD'] != 'POST') {
             <div class="media-body">
               <p style="color: #878787;"><?= $images[$i]['date']; ?></p>
               <h5 style="font-weight:bold;"><?= $images[$i]['title']; ?></h5>
-              <button type="button" class="btn btn-link"><i class="fa-solid fa-heart fa-lg fa-beat-fade" style="color: #f524a8;"></i></button>
+              <!-- like -->
+              <button class="like-button" data-index="<?php echo $images[$i]['id']; ?>"><i class="fa-solid fa-heart fa-lg" style="color: #F05F8D;"></i><span class="like-count" style="color: #F05F8D;"> <?php echo $images[$i]['like_count']; ?></span></button>
+
               <p class="detail"><?= $images[$i]['detail']; ?></p>
             </div>
           </li>
@@ -136,5 +139,6 @@ if ($_SERVER['REQUEST_METHOD'] != 'POST') {
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="js/add.js"></script>
 </body>
 </html>

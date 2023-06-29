@@ -38,3 +38,19 @@ h1 {
 .detail {
   margin-top: 10px;
 }
+
+button {
+  background: none;
+	border: none;
+	outline: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+  box-shadow:none;
+}
+
+button:focus {
+  outline: none;
+  border: none;
+  text-decoration: none;
+}
