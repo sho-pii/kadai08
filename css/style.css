@@ -1,0 +1,27 @@
+
+.col-3{
+  border-right: 1.5px solid #bababa;
+  left: 20px;
+  top: 10px;
+  height: 95vh;
+  padding: 10px 20px 10px 10px;
+  padding-top:20px;
+}
+
+.col-9{
+  /* background-color: rgb(245, 241, 240); */
+  height: 95vh;
+  padding-left: 50px;
+}
+
+.col-9 >.box {
+  height: 100vh;
+  overflow: auto;
+}
+
+li {
+  padding-bottom: 50px;
+  border-bottom: 2px dotted #bababa;
+  max-width: 80%;
+}
+
